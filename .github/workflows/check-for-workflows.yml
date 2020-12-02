@@ -18,14 +18,13 @@ jobs:
 
     - name: Generate
       run: |
-        ./generate.sh -o samples/gcp.md -i samples/gcp-repos \
-          -i https://raw.githubusercontent.com/arjun024/actions-dashboard/master/samples/some-other-gcp-repos
-        if [ -z "$(git status -s -- samples/gcp.md)" ]; then
+        ./generate.sh -o dxos.md -i dxos
+        if [ -z "$(git status -s -- dxos.md)" ]; then
           echo No changes to commit
           exit 0
         fi
         git config user.email "check-action@github"
         git config user.name "check-action"
-        git add samples/gcp.md
+        git add dxos.md
         git commit -m "Update dashboard markdown"
         git push origin master
